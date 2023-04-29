@@ -1,14 +1,13 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.9",
+  solidity: "0.8.17",
   networks: {
-    hardhat: {
-      chainId: 31337,
-    },
-  },
-  paths: {
-    artifacts: "./client/src/artifacts",
-  },
+    "mantle-testnet": {
+      url: "https://rpc.testnet.mantle.xyz/",
+      accounts: [process.env.PRIV_KEY], // Uses the private key from the .env file
+    }
+  }
 };
